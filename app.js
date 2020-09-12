@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '.env' });
+
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -18,6 +19,8 @@ app.use(helmet());
 app.use(morgan(':id :method :url :response-time'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: '50mb' }));
+
+app.get('/', (req, res) => sendJSONResponse(res, 200, null, 'CURRENT API ROUTE AVAILABLE AT /api/v1 '));
 
 app.use((req, res, next) => {
   const err = new Error('We apologize, there seems to be a problem with your request.');
