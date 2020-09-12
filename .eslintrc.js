@@ -10,6 +10,12 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
   rules: {
+    'no-underscore-dangle': 0,
+    'no-return-await': 0,
   },
 };

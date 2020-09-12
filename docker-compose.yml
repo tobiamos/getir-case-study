@@ -20,3 +20,4 @@ services:
      - mongo
     environment:
      - MONGODB_URL=${MONGODB_URL}
+     - NODE_ENV=${NODE_ENV}
