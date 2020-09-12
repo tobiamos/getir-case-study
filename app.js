@@ -6,8 +6,8 @@ const helmet = require('helmet');
 const addRequestId = require('express-request-id')();
 const logger = require('./lib/services/logger');
 const config = require('./lib/config');
-const { jsonResponse } = require('./lib/helpers');
-const apiRoutes = require('./lib/router');
+const { jsonResponse, ERROR_CODES } = require('./lib/helpers');
+const apiRoutes = require('./lib/records/route');
 
 require('./lib/models');
 
@@ -37,9 +37,9 @@ app.use((err, req, res, next) => { //eslint-disable-line
     const { message } = err.data[0];
     jsonResponse(res, err.output.statusCode, err.output.statusCode, [], message);
   } else if (err.status === 404) {
-    jsonResponse(res, err.status, err.status, [], 'We apologize, there seems to be a problem with your request.');
+    jsonResponse(res, err.status, ERROR_CODES.NOTFOUND, [], 'We apologize, there seems to be a problem with your request.');
   } else {
-    jsonResponse(res, 500, 500, [], err.message);
+    jsonResponse(res, 500, ERROR_CODES.ERROR, [], err.message);
     throw err;
   }
 });
