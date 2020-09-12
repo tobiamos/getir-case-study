@@ -8,7 +8,6 @@ services:
       - ./docker/data/mongo:/data/db
     ports:
       - "27017:27017"
-
   app:
     build: .
     ports:
