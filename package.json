@@ -1,0 +1,36 @@
+{
+  "name": "getir-case-study",
+  "version": "1.0.0",
+  "description": "Getir Backend test",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiamos/getir-case-study.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Mongo",
+    "Mongoose"
+  ],
+  "author": "Amos Tobi",
+  "license": "0BSD",
+  "bugs": {
+    "url": "https://github.com/tobiamos/getir-case-study/issues"
+  },
+  "homepage": "https://github.com/tobiamos/getir-case-study#readme",
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "@hapi/joi": "^17.1.1",
+    "bunyan": "^1.8.14",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-request-id": "^1.4.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.5",
+    "morgan": "^1.10.0"
+  }
+}

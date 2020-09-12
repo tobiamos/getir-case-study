@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:3.6.6
+    container_name: getir-mongodb
+    volumes:
+      - ./docker/data/mongo:/data/db
+    ports:
+      - "27017:27017"
+
+  app:
+    build: .
+    ports:
+      - "9500:9500"
+    container_name: getir-api
+    command: npm start
+    volumes:
+      - .:/app
+    depends_on:
+     - mongo
+    environment:
+     - MONGODB_URL=${MONGODB_URL}
