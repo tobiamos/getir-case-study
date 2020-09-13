@@ -6,8 +6,8 @@
 
 You will need to have already installed these tools:
 
- - NodeJs (preferably through nvm)
- - npm 
+ - NodeJs (preferably through nvm) (v12.13)
+ - npm (v6.14)
 
 ### 1. Clone the repository
 
@@ -27,6 +27,5 @@ You can find the default content in `.env.example`,
 
 
 If you want to run the app using Docker after step 3 run the command below in the root directory
-
 
 	$ docker-compose up
