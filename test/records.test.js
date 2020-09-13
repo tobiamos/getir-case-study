@@ -70,6 +70,19 @@ describe('records api', () => {
     expect(res.body).toMatchSnapshot();
   });
 
+  test('filter with min count greater than max count', async () => {
+    const res = await request(app)
+      .post('/api/v1/records')
+      .send({
+        startDate: '2020-02-01',
+        endDate: '2020-02-01',
+        minCount: 1000,
+        maxCount: 500,
+      });
+
+    expect(res.body).toMatchSnapshot();
+  });
+
   test('filter with results in the response', async () => {
     await models.connect();
 

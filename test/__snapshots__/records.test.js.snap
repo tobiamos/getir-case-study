@@ -24,6 +24,14 @@ Object {
 }
 `;
 
+exports[`records api filter with min count greater than max count 1`] = `
+Object {
+  "code": 400,
+  "msg": "Min count must be lesser than or equal to Max count",
+  "records": Array [],
+}
+`;
+
 exports[`records api filter with min count less than 0 1`] = `
 Object {
   "code": 400,
