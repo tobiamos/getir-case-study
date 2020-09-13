@@ -3,13 +3,13 @@ require('dotenv').config({ path: '.env' });
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const http = require('http');
 const addRequestId = require('express-request-id')();
 const logger = require('./lib/services/logger');
 const config = require('./lib/config');
 const { jsonResponse, ERROR_CODES } = require('./lib/helpers');
 const apiRoutes = require('./lib/records/route');
-
-require('./lib/models');
+const models = require('./lib/models');
 
 const app = express();
 
@@ -44,6 +44,12 @@ app.use((err, req, res, next) => { //eslint-disable-line
   }
 });
 
-app.listen(config.port, () => {
-  logger.info(`Getir App running on ${config.baseUrl} in ${process.env.NODE_ENV} environment`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  models.connect().then(() => {
+    http.createServer(app).listen(config.port, () => {
+      logger.info(`Getir App running on ${config.baseUrl} in ${process.env.NODE_ENV} environment`);
+    });
+  });
+}
+
+module.exports = app;

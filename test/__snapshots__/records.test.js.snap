@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`records api filter with empty request body 1`] = `
+Object {
+  "code": 400,
+  "msg": "Start Date is a required field",
+  "records": Array [],
+}
+`;
+
+exports[`records api filter with emtpy results in the response 1`] = `
+Object {
+  "code": 404,
+  "msg": "Your query did not return any results :(",
+  "records": Array [],
+}
+`;
+
+exports[`records api filter with end date before start date 1`] = `
+Object {
+  "code": 400,
+  "msg": "End Date must be after Start Date",
+  "records": Array [],
+}
+`;
+
+exports[`records api filter with min count less than 0 1`] = `
+Object {
+  "code": 400,
+  "msg": "Min count should have a minimum value of 0",
+  "records": Array [],
+}
+`;
+
+exports[`records api filter with results in the response 1`] = `
+Object {
+  "code": 0,
+  "msg": "Success",
+  "records": Array [
+    Object {
+      "_id": "5f5da73c7d99492b69f8a6ff",
+      "createdAt": "2016-01-01T23:08:54.343Z",
+      "key": "VtXguuOz",
+      "totalCount": 50,
+    },
+    Object {
+      "_id": "5f5da73c7d99492b69f8a700",
+      "createdAt": "2016-01-01T18:57:47.340Z",
+      "key": "HjKCYMrZ",
+      "totalCount": 3630,
+    },
+  ],
+}
+`;
+
+exports[`records api filter with wrong date format 1`] = `
+Object {
+  "code": 400,
+  "msg": "Date must be in YYY-MM-DD format",
+  "records": Array [],
+}
+`;

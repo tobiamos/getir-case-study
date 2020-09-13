@@ -4,7 +4,7 @@
   "description": "Getir Backend test",
   "main": "app.js",
   "scripts": {
-    "test": "npm test",
+    "test": "./node_modules/.bin/cross-env NODE_ENV=test node --no-deprecation --no-warnings ./node_modules/.bin/jest --detectOpenHandles --forceExit",
     "start": "nodemon"
   },
   "repository": {
@@ -18,7 +18,7 @@
     "Mongoose"
   ],
   "author": "Amos Tobi",
-  "license": "0BSD",
+  "license": "MIT ",
   "bugs": {
     "url": "https://github.com/tobiamos/getir-case-study/issues"
   },
@@ -34,12 +34,28 @@
     "helmet": "^4.1.1",
     "moment": "^2.27.0",
     "mongoose": "^5.10.5",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "nodemon": "^1.19.4"
+    "eslint-plugin-jest": "^24.0.1",
+    "jest": "^26.4.2",
+    "nodemon": "^1.19.4",
+    "cross-env": "^6.0.3"
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "getir-api-test",
+        "testEnvironment": "node",
+        "testMatch": [
+          "<rootDir>/test/*.test.js"
+        ],
+        "clearMocks": true
+      }
+    ]
   }
 }
