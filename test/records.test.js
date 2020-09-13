@@ -96,6 +96,8 @@ describe('records api', () => {
         maxCount: 10000,
       });
 
-    expect(res.body).toMatchSnapshot();
+    expect(res.body.records[0]).toMatchSnapshot({
+      _id: expect.anything(),
+    });
   });
 });
