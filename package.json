@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/.bin/cross-env NODE_ENV=test node --no-deprecation --no-warnings ./node_modules/.bin/jest --detectOpenHandles --forceExit",
-    "start": "nodemon"
+    "start": "node app.js",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",

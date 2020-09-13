@@ -21,9 +21,9 @@ You will need to have already installed these tools:
 
 You can find the default content in `.env.example`, 
 
-### 4. Start the server
+### 4. Start the server in development mode
 
-	$ npm start
+	$ npm run dev
 
 
 If you want to run the app using Docker after step 3 run the command below in the root directory
